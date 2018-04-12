@@ -37,8 +37,8 @@ notebooks.
 Cover the following in your presentation.
 
    1. Talk about what you planned to accomplish
-   2. How you organized your selves as a team
-   3. What architecture youi chose and why
+   2. How you organized yourselves as a team
+   3. What architecture you chose and why
    4. What final architecture you chose and why (how did you pick your hyperparameters?)
    5. How measured your model's performance
    6. Things learned along the way.
