@@ -6,7 +6,7 @@ The goal of this case study is to get some practice applying deep learning model
 You used linear regression to predict [heavy equipment auction sale prices](https://github.com/gSchool/ds-case-study-linear-models/blob/master/predict_auction_price/README.md), and non-parametric models to predict if someone would [churn from a ride-sharing company](https://github.com/gSchool/dsi-ml-case-study).  Choose one of these old case-studies and use a neural net to get a solution instead.  Compare and contrast your neural network solution with the more standard machine learning models.  Where did it do well?  Where did it do worse?  Was it as easy to train?  How do you interpret your results?  This case case should give you perspective on the advantages and disadvantages of neural networks.
 <br/>
 ### Definitely *not* MNIST
-The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is so 1998.  In 2011 Yaroslav Bulatov made the [notMNIST dataset](http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html).  There are still 10 classes, but instead of numbers 0 - 9 you are classifying letters A - J of many different font styles.  Note that there are large and small tarball compressed (.tar.gz) datasets of .png files for you process (start small!).  
+The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is so 1998.  In 2011 Yaroslav Bulatov made the [notMNIST dataset](http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html).  There are still 10 classes, but instead of numbers 0 - 9 you are classifying letters A - J of many different font styles.  Note that there are large and small tarball compressed (.tar.gz) datasets of .png files for you to analyze (start small!).  
 <br/>
 ### A part of history: CIFAR-10
 From Wikipedia:  
