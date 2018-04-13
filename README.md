@@ -10,12 +10,12 @@ The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is so 1998.  In 2011 Yaro
 <br/>
 ### A part of history: CIFAR-10
 From Wikipedia:  
-*The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection of images that are commonly used to train machine learning and computer vision algorithms. It is one of the most widely used datasets for machine learning research.  The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes.  The 10 different classes represent airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks. There are 6,000 images of each class.* 
+*The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection of images that are commonly used to train machine learning and computer vision algorithms. It is one of the most widely used datasets for machine learning research.  The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes.  The 10 different classes represent airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks. There are 6,000 images of each class.*  
 <br/>
 You can download the dataset [here](https://www.cs.toronto.edu/~kriz/cifar.html).  Be advised that you may need to subset this dataset to get a trained model in a reasonable amount of time.
 <br/>
 ### So you want to predict stocks, don't you?
-Well then, Kaggle has data for you.  Have one team member join [Kaggle](https://www.kaggle.com/) (it's free) and then go to Kaggle's [Dow Jones Industrial Average 30 company stock prediciton competion](https://www.kaggle.com/szrlee/stock-time-series-20050101-to-20171231), click on the "Data" tab, scroll down the page until you see the blue "Download All" button and click it to get all the data.  
+Well then, Kaggle has data for you.  Have one team member join [Kaggle](https://www.kaggle.com/) (it's free) and then go to Kaggle's [Dow Jones Industrial Average 30 company stock prediction competion](https://www.kaggle.com/szrlee/stock-time-series-20050101-to-20171231), click on the "Data" tab, scroll down the page until you see the blue "Download All" button and click it to get all the data.  
 <br/>
 ### Machine translation
 Using guidance from [this blog](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html) and bilingual sentence pairs [here](http://www.manythings.org/anki/) make a machine learning model that will translate sentences from one language to another.  You may need to scope this project severely to get timely results. 
