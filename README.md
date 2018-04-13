@@ -8,7 +8,7 @@ You used linear regression to predict [heavy equipment auction sale prices](http
 <br/>
 <br/>
 ### Definitely *not* MNIST
-The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is so 1998.  In 2011 Yaroslav Bulatov made the [notMNIST dataset](http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html)
+The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is so 1998.  In 2011 Yaroslav Bulatov made the [notMNIST dataset](http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html).  There are still 10 classes, but instead of numbers 0 - 9 you are classifying letters A - J of many different font styles.  Note that there are large and small tarball compressed (.tar.gz) datasets of .png files for you process (starting small!).  
 
 Read more [here.](link2)
 <br/>
