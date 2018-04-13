@@ -3,14 +3,12 @@
 The goal of this case study is to get some practice applying deep learning models to data.  Please select a case study from one of the options below.
 <br/>
 <br/>
-### Option 1 generic title
-Option 1 is amazing.  Everyone is doing it.  (Probably have a general dataset, like churn, that could be analyzed with many tools, including an MLP.
-
-Read more [here.](link1)
+### Revisit an old case study with new tools
+You used linear regression to predict [heavy equipment auction sale prices](https://github.com/gSchool/ds-case-study-linear-models/blob/master/predict_auction_price/README.md), and non-parametric models to predict if someone would [churn from a ride-sharing company](https://github.com/gSchool/dsi-ml-case-study).  Choose one of these old case-studies and use a neural net to get a solution instead.  Compare and contrast your neural network solution with the more standard machine learning models.  Where did it do well?  Where did it do worse?  Was it as easy to train?  How do you interpret your results?  This case case should give you perspective on the advantages and disadvantages of neural networks.
 <br/>
 <br/>
-### Option 2 generic title
-The only thing better than Option 1 is Option 2.  (A datasets like Cifar-10 that has image classifiction using a CNN would be good here)
+### Definitely *not* MNIST
+The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is so 1998.  In 2011 Yaroslav Bulatov made the [notMNIST dataset](http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html)
 
 Read more [here.](link2)
 <br/>
