@@ -9,12 +9,12 @@ You used linear regression to predict [heavy equipment auction sale prices](http
 <br/>
 ### Definitely *not* MNIST
 The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is so 1998.  In 2011 Yaroslav Bulatov made the [notMNIST dataset](http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html).  There are still 10 classes, but instead of numbers 0 - 9 you are classifying letters A - J of many different font styles.  Note that there are large and small tarball compressed (.tar.gz) datasets of .png files for you process (starting small!).  
-
-Read more [here.](link2)
 <br/>
 <br/>
-### Option 3 generic title
-Option 3 is better than 2! (An RNN, sequence dataset, probably something with text)
+### A part of history: CIFAR-10
+From Wikipedia:  
+*The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection of images that are commonly used to train machine learning and computer vision algorithms. It is one of the most widely used datasets for machine learning research.  The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes.  The 10 different classes represent airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks. There are 6,000 images of each class.*  
+You can download the dataset [here](https://www.cs.toronto.edu/~kriz/cifar.html).  Be advised that you may need to subset this dataset to get a trained model in a reasonable amount of time.
 
 Read more [here.](link3)
 <br/>
