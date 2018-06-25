@@ -21,8 +21,7 @@ Well then, Kaggle has data for you.  Have one team member join [Kaggle](https://
 Using guidance from [this blog](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html) and bilingual sentence pairs [here](http://www.manythings.org/anki/) make a machine learning model that will translate sentences from one language to another.  You may need to scope this project severely to get timely results. 
 <br/>
 ## Presentations
-At the end of the day your group will be expected to present for 5-10 minutes on your findings.  You can do this directly from your Jupyter
-notebooks (but realize that the audience is not going to read your code - use figures/plots and make results clear!)
+At the end of the day your group will be expected to present for 5-10 minutes on your findings.  Please present from your group's Github README.md.
 
 Cover the following in your presentation.
 
