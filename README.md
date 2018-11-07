@@ -16,10 +16,13 @@ You can download the dataset [here](https://www.cs.toronto.edu/~kriz/cifar.html)
 <br/>
 ### So you want to predict stocks, don't you?
 Well then, Kaggle has data for you.  Have one team member join [Kaggle](https://www.kaggle.com/) (it's free) and then go to Kaggle's [Dow Jones Industrial Average 30 company stock prediction competion](https://www.kaggle.com/szrlee/stock-time-series-20050101-to-20171231), click on the "Data" tab, scroll down the page until you see the blue "Download All" button and click it to get all the data.  
-<br/>
 ### Machine translation
 Using guidance from [this blog](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html) and bilingual sentence pairs [here](http://www.manythings.org/anki/) make a machine learning model that will translate sentences from one language to another.  You may need to scope this project severely to get timely results. 
 <br/>
+### Do you want to play a game?
+Select an [environment](https://gym.openai.com/envs/) in OpenAI Gym and train an agent to perform well in the environment.  Beware of the complexity and training time associated with the video games.  The [Leaderboard](https://github.com/openai/gym/wiki/Leaderboard) may contain a solution for your environment that you could start with.  Be prepared to talk in-depth about your agent, the environment, actions, states, rewards, q-learning and your resulting policy.
+
+
 ## Presentations
 At the end of the day your group will be expected to present for 5-10 minutes on your findings.  Please present from your group's Github README.md.
 
