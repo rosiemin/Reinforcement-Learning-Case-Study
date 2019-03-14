@@ -1,24 +1,16 @@
 # Deep learning case study
+## Authors: Matt Devor, Nathan James, Rosie Martinez & Neha Rao
 
-The goal of this case study is to get some practice applying deep learning models to data.  Please select a case study from one of the options below.
-<br/>
-### Revisit an old case study with new tools
-You used linear regression to predict [heavy equipment auction sale prices](https://github.com/gSchool/ds-case-study-linear-models/blob/master/predict_auction_price/README.md), and non-parametric models to predict if someone would [churn from a ride-sharing company](https://github.com/gSchool/dsi-ml-case-study).  Choose one of these old case-studies and use a neural net to get a solution instead.  Compare and contrast your neural network solution with the more standard machine learning models.  Where did it do well?  Where did it do worse?  Was it as easy to train?  How do you interpret your results?  This case case should give you perspective on the advantages and disadvantages of neural networks.
-<br/>
-### Definitely *not* MNIST
-The [MNIST dataset](http://yann.lecun.com/exdb/mnist/) is so 1998.  In 2011 Yaroslav Bulatov made the [notMNIST dataset](http://yaroslavvb.blogspot.com/2011/09/notmnist-dataset.html).  There are still 10 classes, but instead of numbers 0 - 9 you are classifying letters A - J of many different font styles.  Note that there are large and small tarball compressed (.tar.gz) datasets of .png files for you to analyze (start small!).  
-<br/>
-### A part of history: CIFAR-10
-From Wikipedia:  
-*The CIFAR-10 dataset (Canadian Institute For Advanced Research) is a collection of images that are commonly used to train machine learning and computer vision algorithms. It is one of the most widely used datasets for machine learning research.  The CIFAR-10 dataset contains 60,000 32x32 color images in 10 different classes.  The 10 different classes represent airplanes, cars, birds, cats, deer, dogs, frogs, horses, ships, and trucks. There are 6,000 images of each class.*  
-<br/>
-You can download the dataset [here](https://www.cs.toronto.edu/~kriz/cifar.html).  Be advised that you may need to subset this dataset to get a trained model in a reasonable amount of time.
-<br/>
-### So you want to predict stocks, don't you?
-Well then, Kaggle has data for you.  Have one team member join [Kaggle](https://www.kaggle.com/) (it's free) and then go to Kaggle's [Dow Jones Industrial Average 30 company stock prediction competion](https://www.kaggle.com/szrlee/stock-time-series-20050101-to-20171231), click on the "Data" tab, scroll down the page until you see the blue "Download All" button and click it to get all the data.  
-### Machine translation
-Using guidance from [this blog](https://blog.keras.io/a-ten-minute-introduction-to-sequence-to-sequence-learning-in-keras.html) and bilingual sentence pairs [here](http://www.manythings.org/anki/) make a machine learning model that will translate sentences from one language to another.  You may need to scope this project severely to get timely results. 
-<br/>
+## The Goal:
+The goal of this case study was to use reinforcement learning to train an agent to perform well in an environment using the OpenAI Gym [source]/(https://gym.openai.com/envs/). Based on our time constraints, we chose to tackle one of the classic environments: 
+
+<video controls="controls">
+  <source type="video/mp4" src="https://gym.openai.com/v2018-02-21/videos/MountainCar-v0-270f34b9-f23e-4d95-a933-4c902b4f4435/original.mp4"></source>
+  <source type="video/webm" src="https://gym.openai.com/v2018-02-21/videos/MountainCar-v0-270f34b9-f23e-4d95-a933-4c902b4f4435/original.mp4"></source>
+  <p>Your browser does not support the video element.</p>
+</video>
+
+
 ### Do you want to play a game?
 Select an [environment](https://gym.openai.com/envs/) in OpenAI Gym and train an agent to perform well in the environment.  Beware of the complexity and training time associated with the video games.  The [Leaderboard](https://github.com/openai/gym/wiki/Leaderboard) may contain a solution for your environment that you could start with.  Be prepared to talk in-depth about your agent, the environment, actions, states, rewards, q-learning and your resulting policy.
 
