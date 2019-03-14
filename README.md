@@ -5,7 +5,7 @@
 The goal of this case study was to use reinforcement learning to train an agent to perform well in an environment using the OpenAI Gym [source]/(https://gym.openai.com/envs/). Based on our time constraints, we chose to tackle one of the classic environments: 
 
 <p align="center">
-  <img src="example.gif" width="550">
+  <img src="images/example.gif" width="550">
 </p>
 
 
