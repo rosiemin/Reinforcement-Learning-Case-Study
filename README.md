@@ -69,7 +69,9 @@ The Naive Model randomly from the rewards table based on the maximum reward base
   <img src="images/naive_lineplot.png" width="550">
   <img src="images/naive_policy.png" width="550">
 </p>
+
 ```
+
           +--------------+--------+---------+--------+
           |    STATE     |  LEFT  | NEUTRAL | RIGHT  |
           +--------------+--------+---------+--------+
@@ -111,6 +113,7 @@ The Naive Model randomly from the rewards table based on the maximum reward base
           | ['0.4' '-']  |  0.0   |   0.0   |  0.0   |
           | ['0.5' '-']  |  0.0   |   0.0   |  0.0   |
           +--------------+--------+---------+--------+
+
 ```
 
 
