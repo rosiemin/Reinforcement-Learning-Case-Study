@@ -57,10 +57,12 @@ Policy is a rule used by an agent for choosing the next action, these are also c
 ##### Reward Table or Q-Table (depending on model):
 For our case study, we realized that our states were based on two continuous variables:
 
-|          	| Minimum 	| Maximum 	|
-|----------	|---------	|---------	|
-| Position 	| -1.2    	| 0.6     	|
-| Velocity 	| -0.07   	| 0.07    	|
+                                |          	| Minimum 	| Maximum 	|
+                                |----------	|---------	|---------	|
+                                | Position 	| -1.2    	| 0.6     	|
+                                | Velocity 	| -0.07   	| 0.07    	|
+
+Due to the fact these were both continuous variables, we didn't want to have an overwhelming size of a reward table, so we decided to bin our position values by rounding to the nearest tenth position. For our velocity, we decided that it was informative if our velocity was either positive or negative, so we dichotomized that varible, ending up with 38 different states in our models.
 
 ## Naive Model:
 The Naive Model randomly from the rewards table based on the maximum reward based on that state. (see reward table below). If two states had the same max value of reward, the actions were shuffled and one was chosen at random.
