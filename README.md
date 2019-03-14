@@ -4,9 +4,9 @@
 ## The Goal:
 The goal of this case study was to use reinforcement learning to train an agent to perform well in an environment using the OpenAI Gym [source]/(https://gym.openai.com/envs/). Based on our time constraints, we chose to tackle one of the classic environments: 
 
-<figure class="video_container">
-  <iframe src="https://gym.openai.com/v2018-02-21/videos/MountainCar-v0-270f34b9-f23e-4d95-a933-4c902b4f4435/original.mp4" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<p align="center">
+  <img src="example.gif" width="550">
+</p>
 
 
 
