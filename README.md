@@ -13,7 +13,7 @@
   * [The Resulting Policy](#The-Resulting-Policy)
 * [Our Model](#Our-model-in-action)
 * [The Results](#The-Results)
-* [Final Thoghts & Next Steps](#Final-Thoughts)
+* [Final Thoughts & Next Steps](#Final-Thoughts-&-Next-Steps)
 
 ## The Goal:
 The goal of this case study was to use reinforcement learning to train an agent to perform well in an environment using the OpenAI Gym [source]/(https://gym.openai.com/envs/). Based on our time constraints, we chose to tackle one of the classic environments: 
