@@ -2,8 +2,18 @@
 ## Authors: Matt Devor, Nathan James, Rosie Martinez & Neha Rao
 
 ## Table of Contents
-* [The Goal]# The Goal
-* [The Plan]# The Plan
+* [The Goal](#The-Goal)
+* [The Plan](#The-Plan)
+* [Implementing our code](#Implementing-our-code)
+  * [The Environment](#The-Environment)
+  * [The Actions](#The-Actions)
+  * [The States](#The-States)
+  * [The Rewards](#The-Rewards)
+  * [Q-Learning](#Q-learning)
+  * [The Resulting Policy](#The-Resulting-Policy)
+* [Our Model](#Our-model-in-action)
+* [The Results](#The-Results)
+* [Final Thoghts & Next Steps](#Final-Thoughts)
 
 ## The Goal:
 The goal of this case study was to use reinforcement learning to train an agent to perform well in an environment using the OpenAI Gym [source]/(https://gym.openai.com/envs/). Based on our time constraints, we chose to tackle one of the classic environments: 
@@ -20,17 +30,17 @@ The goal of this case study was to use reinforcement learning to train an agent 
 ## Implementing our code:
    3. What architecture you chose and why
    4. What final architecture you chose and why (how did you pick your hyperparameters?)
-* The Environment:
+#### The Environment:
 
-* The Actions:
+#### The Actions:
 
-* The States:
+#### The States:
 
-* The Rewards:
+#### The Rewards:
 
-* Q-learning:
+#### Q-learning:
 
-* The Resulting Policy:
+#### The Resulting Policy:
 
 ## Our model in action:
 *potentailly input a video or gif of our model working*
