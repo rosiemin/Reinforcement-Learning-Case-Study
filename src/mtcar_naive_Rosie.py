@@ -2,6 +2,8 @@ import gym
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from matplotlib.colors import BoundaryNorm
+
 
 env = gym.make('MountainCar-v0')
 
@@ -25,7 +27,7 @@ for i_episode in range(total_episodes):
     env.reset()
     reward_n = 0
     for t in range(200):
-        # pic = env.render()
+        # env.render(mode = 'rgb_array')
         # print(f"Obs Before: {state}")
         action = env.action_space.sample()
         print(f"Action Taken: {action}")
@@ -43,28 +45,3 @@ for i_episode in range(total_episodes):
             rewards_lst.append(reward_n)
 
             break
-
-plt.figure(2, figsize=[10,5])
-p = pd.Series(position_lst)
-plt.plot(p, alpha=0.8)
-plt.xlabel('Iteration')
-plt.ylabel('Position')
-plt.title('All Car Position')
-plt.savefig('Final Position.png')
-plt.show()
-
-import matplotlib.patches as mpatches
-from matplotlib.colors import ListedColormap
-fig = plt.figure(3, figsize=[7,7])
-ax = fig.gca()
-plt.set_cmap('brg')
-surf = ax.scatter(X,Y, c=Z)
-ax.set_xlabel('Position')
-ax.set_ylabel('Velocity')
-ax.set_title('Policy')
-recs = []
-for i in range(0,3):
-     recs.append(mpatches.Rectangle((0,0),1,1,fc=sorted(colors.unique())[i]))
-plt.legend(recs,labels,loc=4,ncol=3)
-# fig.savefig('Policy.png')
-plt.show()

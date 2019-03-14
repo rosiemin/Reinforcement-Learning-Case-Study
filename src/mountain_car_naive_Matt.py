@@ -1,12 +1,14 @@
 import gym
 import numpy as np
 import matplotlib.pyplot as plt
+import imageio
+
 
 def plot_max_position(positions, rewards):
     plt.figure(1, figsize=[8,6])
     plt.title("Mountain Car Max Positions and Rewards per Episode")
     plt.subplot(211)
-    plt.plot(positions[:,1], color='g') #positions[:,0], 
+    plt.plot(positions[:,1], color='g') #positions[:,0],
     plt.xlabel('Episode')
     plt.ylabel('Max Position')
     plt.subplot(212)
@@ -25,7 +27,7 @@ env = gym.make('MountainCar-v0')
 # self.goal_position = 0.5
 # position, velocity = self.state
 
-total_episodes = 1000
+total_episodes = 10
 print(env.action_space)
 print(env.observation_space)
 
@@ -36,13 +38,15 @@ print(f"Positions Initial {positions}")
 print(f"Velocities Initial {velocities}")
 all_rewards = []
 successful = []
+images = []
+
 
 for episode in range(total_episodes):
     state = env.reset()
     print(f"initial position: {state}")
     total_rewards = 0
     for t in range(200):
-        env.render()
+        images.append(env.render("rgb_array"))
         # print(f"Obs Before: {observation}")
         action = env.action_space.sample()
         # print(f"Action Taken: {action}")
@@ -68,3 +72,7 @@ print('Furthest Position: {}'.format(max_position))
 print('Successful Episodes: {}'.format(np.count_nonzero(successful)))
 
 plot_max_position(positions, all_rewards)
+
+with imageio.get_writer("images/naive_model.gif",mode='I') as writer:
+    for image in images:
+        writer.append_data(image)
