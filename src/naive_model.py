@@ -36,7 +36,7 @@ state_lst = []
 action_lst = []
 
 # initialize r_table
-r_table = np.zeros((37, 3))
+r_table = np.zeros((38, 3))
 
 def convert_states(state):
     pos_rounded = round(state[0],1)

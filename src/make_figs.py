@@ -26,7 +26,7 @@ def print_pretty_table(table):
     x = PrettyTable()
     x.field_names = ["STATE", "LEFT", "NEUTRAL", "RIGHT"]
 
-    state_pos = np.round(np.linspace(-1.2, 0.6, 19).reshape(-1,1),1)
+    state_pos = np.round(np.linspace(0.6, -1.2, 19).reshape(-1,1),1)
     plus = np.where(np.zeros(len(state_pos)) == 0, "+", 0).reshape(-1,1)
     state_top = np.hstack((state_pos, plus))
     minus = np.where(np.zeros(len(state_pos)) == 0, "-", 0).reshape(-1,1)
