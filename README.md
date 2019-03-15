@@ -89,7 +89,7 @@ Due to the fact these were both continuous variables, we didn't want to have an 
 #### Naive Policy:
 Max reward at each state chosen based on cumulative reward table
 
-The Naive Model selected randomly from the rewards table based on the maximum reward based on that state. (see reward table below). If two states had the same max value of reward, the actions were shuffled and one was chosen at random. As you can see, the reward didn't change too much from episode to episode and the max position never reached the flag position (0.6). From the short clip below, we can see that the model never really reached above a certain threshold in the environment and it just oscillated back and forth for the majority of the episodes. The rewards table below also reflect that, where we see clusters of negative rewards in two certain areas, but not much beyond that.
+The Naive Model selected actions using the rewards table based on the highest reward value for each state. (see reward table below). If two states had the same max value of reward, the actions were shuffled and one was chosen at random. As you can see, the reward didn't change too much from episode to episode and the max position never reached the flag position (0.6). From the short clip below, we can see that the model never really reached above a certain threshold in the environment and it just oscillated back and forth for the majority of the episodes. The rewards table below also reflect that, where we see clusters of negative rewards in two certain areas, but not much beyond that.
 
 
 <p align="center">
@@ -169,6 +169,7 @@ We had to boost the performance of the Q-learning model with extra rewards becau
 
 <p align="center">
   <img src="images/mtcar_qtable.png" width="550">
+  <img src="images/Q-policy.png" width="550">
   <img src="images/Q-learning.gif" width="550">
 </p>
 
