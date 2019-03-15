@@ -21,7 +21,7 @@ env.seed(2)
 # action 2 = right
 
 
-total_episodes = 10
+total_episodes = 1000
 print(env.action_space)
 print(env.observation_space)
 
@@ -53,7 +53,7 @@ for episode in range(total_episodes):
 
     running_reward = 0
     for t in range(200):
-        # env.render()
+        env.render()
         expected_reward = -1*t
 
         state = convert_states(state)
