@@ -7,6 +7,8 @@
   * [The Environment](#The-Environment)
   * [The Actions](#The-Actions)
   * [The States](#The-States)
+  * [Rewards](#Rewards)
+  * [Policies](#Policies)
   * [Reward Table](#Reward-Table)
 * [Naive Model](#Naive-Model)
   * [Naive Rewards](#Naive-Rewards)
@@ -59,6 +61,11 @@ The state is a complete description of the world, they don’t hide any pieces o
   <img src="images/cycle.png" width="550">
 </p>
 
+##### Rewards:
+The reward function R is the one which must be kept tracked all-time in reinforcement learning. It plays a vital role in tuning, optimizing the algorithm and stop training the algorithm. It depends on the current state of the world, the action just taken, and the next state of the world.
+
+##### Policies:
+Policy is a rule used by an agent for choosing the next action, these are also called as agents brains.
 
 ##### Reward Table
 
@@ -145,19 +152,13 @@ The rewards table is below:
 ## Q-Table Model:
 
 ##### The Q-model Rewards:
-The reward function R is the one which must be kept tracked all-time in reinforcement learning. It plays a vital role in tuning, optimizing the algorithm and stop training the algorithm. It depends on the current state of the world, the action just taken, and the next state of the world.
-
-**Our rewards for Q-learning are:**  
-
 1. Multiply every second elapsed by -1
 2. Multiply absolute value of velocity by 1000 to reward higher velocities (max velocity = 0.07)
 3. Add 10 to the reward when the maximum position of the episode exceeds the maximum position of the previous episode.
 
 
 ##### Q-Model Policies:
-Policy is a rule used by an agent for choosing the next action, these are also called as agents brains.
-
-**Our policies for Q-learning are based on the Bellman Equation:**
+Our policies for Q-learning are based on the Bellman Equation:
 
 <p align="center">
   <img src="images/ Q_learning.png" width="700">
