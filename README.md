@@ -227,7 +227,7 @@ The Keras model used a neural network to learn the Q function to predict results
 
 <p align="center">
   <img src="images/nn_r_add_100velo_1000ep.png" width="550">
-  <img src="images/images/nn_policy_plot_1kep.png" width="550">
+  <img src="images/nn_policy_plot_1kep.png" width="550">
 </p>
 
 
