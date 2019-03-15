@@ -55,12 +55,13 @@ The reward function R is the one which must be kept tracked all-time in reinforc
 
 ##### Policies:
 Policy is a rule used by an agent for choosing the next action, these are also called as agents brains.
+
+
+**Our policies for Q-learning are based on the following equation:**
 For Q-learning, we use the Bellman Equation:
 <p align="center">
   <img src="images/Q_learning.png" width="550">
 </p>
-
-**Our policies for Q-learning are based on the following equation:**
 
 ##### Reward Table or Q-Table (depending on model):
 For our case study, we realized that our states were based on two continuous variables:
@@ -129,7 +130,14 @@ The Naive Model randomly from the rewards table based on the maximum reward base
 
 
 ## Q-Table Model:
-Sorry for the insane amount of sig figs!
+It took a lot of adjustments to the number of episodes, the learning rate, and the rewards to finally get a model that successfully got to the goal post. We found that the ratio between the rewards for max_position and velocity really affected the performance of our model. We ended up with a 7% success rate after 50,000 episodes. 
+
+<p align="center">
+  <img src="images/mtcar_qtable.png" width="550">
+</p>
+
+
+Rewards table is shown below. Sorry for the insane amount of sig figs!
 ```
                      +--------------+--------------------+--------------------+--------------------+
                 |    STATE     |        LEFT        |      NEUTRAL       |       RIGHT        |
@@ -184,12 +192,12 @@ Sorry for the insane amount of sig figs!
 |                           	| Naive Model 	| Q-Table Model 	| Keras Model 	|
 |---------------------------	|-------------	|---------------	|-------------	|
 | Average Reward            	| -200        	|               	|             	|
-| Total number of episodes  	| 1000        	| 30,000        	|             	|
+| Total number of episodes  	| 1000        	| 50,000        	|             	|
 | Episode of first success  	| 0           	| 1264          	|             	|
-| Total number of successes 	| 0           	| 1069          	|             	|
+| Total number of successes 	| 0           	| 3503          	|             	|
 
 ## Final Thoughts & Next Steps:
 
 ### Q-table:
 
-We would need a lot more episodes to see a smoother curve when plotting edisodes versus max posiiton. Right now, the model is still having some difficulties in learning. With more time, we would be able to optimize our rewards system. We found that the ratio between the rewards for max_position and velocity really affected the performance of our model. We could also apply a huge reward for successes, which might help the model learn faster. 
+We would need a lot more episodes to see a smoother curve when plotting episodes versus max posiiton. Right now, the model is still having some difficulties in learning. With more time, we would be able to optimize our rewards system.  We could also apply a huge reward for successes, which might help the model learn faster. If our binning intervals were larger, we might have generated a better q-table with more clearly defined actions.
