@@ -131,7 +131,7 @@ The Naive Model randomly from the rewards table based on the maximum reward base
 
 
 ## Q-Table Model:
-It took a lot of adjustments to the number of episodes, the learning rate, and the rewards to finally get a model that successfully got to the goal post. We found that the ratio between the rewards for max_position and velocity really affected the performance of our model. We ended up with a 7% success rate after 50,000 episodes. 
+We had to boost the performance of the Q-learning model with extra rewards because there's no positive reinforcement using the Q-learning policies until the cart starts gaining momentum. It took a lot of adjustments to the number of episodes, the learning rate, and the rewards to finally get a model that successfully got to the goal post. We found that the ratio between the rewards for max_position and velocity really affected the performance of our model. We ended up with a 7% success rate after 50,000 episodes. 
 
 <p align="center">
   <img src="images/mtcar_qtable.png" width="550">
