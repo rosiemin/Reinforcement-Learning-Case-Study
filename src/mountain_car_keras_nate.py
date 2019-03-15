@@ -41,49 +41,54 @@ model.compile(loss='mse', optimizer='adam', metrics=['mae'])
 
 
 ''' Training Model: Q learning '''
-n_episodes = 1000
-y = 0.95
-eps = 0.75
-decay_factor = 0.99
-r_avg_lst = []
-targ_avg_lst = []
-eye_s = np.eye(n_states)
-for episode in range(n_episodes):
-    s = convert_states(env.reset())
-    eps*= decay_factor
-    if episode % 100 == 0:
-        print("Episode {} of {}".format(episode + 1, n_episodes))
-    done = False
-    r_sum = 0
-    targ_sum = 0
-    for t in range(200):
+def train_model(model, n_episodes=1000, render=False, rend_mul=100)
+    y = 0.95
+    eps = 0.75
+    decay_factor = 0.99
+    r_avg_lst = []
+    targ_avg_lst = []
+    eye_s = np.eye(n_states)
+    for episode in range(n_episodes):
+        s = convert_states(env.reset())
+        eps*= decay_factor
         if episode % 100 == 0:
-            env.render()
-        if np.random.rand() < eps:
-            a = np.random.randint(n_actions)
-        else:
-            a = rand_max(model.predict(eye_s[s:s+1]).reshape(-1))
-        _s, r, done, _ = env.step(a)
-        new_s = convert_states(_s)
-        target = r + y * np.max(model.predict(eye_s[new_s:new_s+1])) \
-                 + 100*(np.abs(_s[1]))
-        targ_vec = model.predict(eye_s[s:s+1])[0]
-        targ_vec[a] = target
-        model.fit(eye_s[s:s+1],targ_vec.reshape(1,-1), epochs=1, verbose=0)
-        s = new_s
-        r_sum += r
-        targ_sum += target
-        if done:
-            break
-    r_avg_lst.append(r_sum / 200)
-    targ_avg_lst.append(targ_sum / 200)
+            print("Episode {} of {}".format(episode, n_episodes))
+        done = False
+        r_sum = 0
+        targ_sum = 0
+        for t in range(200):
+            if render and episode % rend_mul == 0:
+                env.render()
+            if np.random.rand() < eps:
+                a = np.random.randint(n_actions)
+            else:
+                a = rand_max(model.predict(eye_s[s:s+1]).reshape(-1))
+            _s, r, done, _ = env.step(a)
+            new_s = convert_states(_s)
+            target = r + y * np.max(model.predict(eye_s[new_s:new_s+1])) \
+                     + 100*(np.abs(_s[1]))
+            targ_vec = model.predict(eye_s[s:s+1])[0]
+            targ_vec[a] = target
+            model.fit(eye_s[s:s+1],targ_vec.reshape(1,-1), epochs=1, verbose=0)
+            s = new_s
+            r_sum += r
+            targ_sum += target
+            if done:
+                break
+        r_lst.append(r_sum)
+        targ_avg_lst.append(targ_sum / 200)
+        return r_lst, targ_avg_lst
 
+
+r_lst, targ_avg_lst = train_model(model)
 # plot rewards over episodes
 fig, ax = plt.subplots(figsize=(8,6))
-ax.plot(r_avg_lst, label='Avg Reward per action')
-ax.plot(targ_avg_lst, label='Avg Target per action')
+ax.plot(r_lst, label='Tota reward', color='g')
+ax.plot(targ_avg_lst, label='Avg Target per action', color='b')
+ax.legend()
 ax.set_xlabel('Number of Episodes')
 ax.set_ylabel('Average reward per episode')
+ax.set_title('MLP Q Learning '+ ENV_NAME)
 
 fig.show()
 
