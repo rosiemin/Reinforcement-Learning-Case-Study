@@ -28,8 +28,8 @@ The goal of this case study was to use reinforcement learning to train an agent 
 </p>
 
 Our goal was to see if we could train the actor in this given environment using reinforcement learning based on:
-1. A naive model - random actions
-2. A Q-table model - modified for rewards
+1. A naive model
+2. A Q-table model
 3. A Keras model
 
 [Return to Top](#Table-of-Contents)

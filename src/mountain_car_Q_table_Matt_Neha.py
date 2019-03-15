@@ -54,6 +54,9 @@ print(env.observation_space)
 max_position = -.4
 positions = np.ndarray([0,2])
 velocities = np.ndarray([0,2])
+positions_1 = []
+velocities_1 = []
+action_lst = []
 all_rewards = []
 successful = []
 time_successful = []
@@ -95,8 +98,10 @@ for episode in range(total_episodes):
         else:
             #action = np.argmax(r_table[state, :]) # Exploit
             action = rand_max(q_table[state, :])
-
+        action_lst.append(action)
         new_state, reward, done, info = env.step(action)
+        positions_1.append(new_state[0])
+        velocities_1.append(new_state[0])
 
         # Adjust reward based on car velocity
         reward += np.abs(new_state[1]) * 1000
