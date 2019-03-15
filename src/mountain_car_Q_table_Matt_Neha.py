@@ -15,6 +15,7 @@ def plot_max_position(positions, rewards):
     plt.title("Mountain Car Max Positions")
     plt.xlabel('Episode')
     plt.ylabel('Max Position')
+    plt.legend()
     plt.show()
 
 def print_pretty_table(table):
