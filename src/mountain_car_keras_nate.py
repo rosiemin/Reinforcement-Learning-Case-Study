@@ -41,15 +41,17 @@ model.compile(loss='mse', optimizer='adam', metrics=['mae'])
 
 
 ''' Training Model: Q learning '''
-def train_model(model, n_episodes=1000, render=False, rend_mul=100)
+def train_model(env, model, n_episodes=1000, render=False, rend_mul=100):
     y = 0.95
     eps = 0.75
     decay_factor = 0.99
-    r_avg_lst = []
+    records = []
+    r_lst = []
     targ_avg_lst = []
     eye_s = np.eye(n_states)
     for episode in range(n_episodes):
-        s = convert_states(env.reset())
+        s_ = env.reset()
+        s = convert_states(s_)
         eps*= decay_factor
         if episode % 100 == 0:
             print("Episode {} of {}".format(episode, n_episodes))
@@ -70,6 +72,8 @@ def train_model(model, n_episodes=1000, render=False, rend_mul=100)
             targ_vec = model.predict(eye_s[s:s+1])[0]
             targ_vec[a] = target
             model.fit(eye_s[s:s+1],targ_vec.reshape(1,-1), epochs=1, verbose=0)
+            records.append((*s_, a))
+            s_ = _s
             s = new_s
             r_sum += r
             targ_sum += target
@@ -77,13 +81,14 @@ def train_model(model, n_episodes=1000, render=False, rend_mul=100)
                 break
         r_lst.append(r_sum)
         targ_avg_lst.append(targ_sum / 200)
-        return r_lst, targ_avg_lst
+    return r_lst, targ_avg_lst, records
 
 
-r_lst, targ_avg_lst = train_model(model)
+r_lst, targ_avg_lst, records = train_model(env, model)
+r_lst = np.array(r_lst)
 # plot rewards over episodes
 fig, ax = plt.subplots(figsize=(8,6))
-ax.plot(r_lst, label='Tota reward', color='g')
+ax.plot(r_lst+200, label='Tota reward +200', color='g')
 ax.plot(targ_avg_lst, label='Avg Target per action', color='b')
 ax.legend()
 ax.set_xlabel('Number of Episodes')
@@ -93,7 +98,7 @@ ax.set_title('MLP Q Learning '+ ENV_NAME)
 fig.show()
 
 # # After training is done, we save the final weights.
-model.save('./nn_{}_{}_weights.h5f'.format(ENV_NAME,
+model.save('../models/nn_{}_{}_weights.h5f'.format(ENV_NAME,
                                                 input('Model nickname: ')),
                  overwrite=True)
 

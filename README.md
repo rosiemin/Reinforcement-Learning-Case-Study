@@ -226,6 +226,7 @@ Q-table is shown below:
 The Keras model used a neural network to learn the Q function to predict results for future actions. The architecture was 3 hidden layers of 24 neurons with dropout at 25% and using the `Adam` optimizer. The neural network was trained on the reward plus discount rate times the future max reward prediction plus 100 times the absolute value of the new velocity. Around the 300th episode the model learned how to start getting up the hill. The model still doesn't get above -180 and so has quite a bit more to learn to be a high performing model. Training on more episodes may improve performance further.
 
 ![100vel](images/nn_r_add_100velo_1000ep.png)
+![nn_policy_plot](images/nn_policy_plot_1kep.png)
 
 
 [Return to Top](#Table-of-Contents)
@@ -249,6 +250,10 @@ From the results that we see, it makes sense, in the sense that we aren't seeing
 ### Q-table:
 
 We would need a lot more episodes to see a smoother curve when plotting episodes versus max position. Right now, the model is still having some difficulties in learning. With more time, we would be able to optimize our rewards system.  We could also apply a huge reward for successes, which might help the model learn faster. If our binning intervals were larger, we might have generated a better q-table with more clearly defined actions.
+
+### Keras Neural Net:
+The keras-rl provides many other possible policies to try. Documentation and our personal knowledge was lacking to get the BoltzmannQPolicy to learn something. Further knowledge of reinforcement learning policies and strategies would produce better results. Our current model may perform better after more episodes.  
+
 
 ### Next Steps:
 CHANGE IF NEEDED add more
