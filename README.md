@@ -130,7 +130,7 @@ The Naive Model randomly from the rewards table based on the maximum reward base
 
 ## Q-Table Model:
 Sorry for the insane amount of sig figs!
-'''
+```
      +--------------+--------------------+--------------------+--------------------+
 |    STATE     |        LEFT        |      NEUTRAL       |       RIGHT        |
 +--------------+--------------------+--------------------+--------------------+
@@ -173,7 +173,7 @@ Sorry for the insane amount of sig figs!
 | ['-1.1' '-'] | 343.2727997861625  | 340.90611946838345 |  340.435087065668  |
 | ['-1.2' '-'] | 341.59170879491273 | 341.7640692608056  | 342.0490990436949  |
 +--------------+--------------------+--------------------+--------------------+
-'''
+```
 ## Keras Model:
    3. What architecture you chose and why
    4. What final architecture you chose and why (how did you pick your hyperparameters?)
