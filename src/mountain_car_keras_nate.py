@@ -88,7 +88,7 @@ r_lst, targ_avg_lst, records = train_model(env, model)
 r_lst = np.array(r_lst)
 # plot rewards over episodes
 fig, ax = plt.subplots(figsize=(8,6))
-ax.plot(r_lst+200, label='Tota reward +200', color='g')
+ax.plot(r_lst+200, label='Total reward +200', color='g')
 ax.plot(targ_avg_lst, label='Avg Target per action', color='b')
 ax.legend()
 ax.set_xlabel('Number of Episodes')
@@ -114,3 +114,21 @@ model.save('../models/nn_{}_{}_weights.h5f'.format(ENV_NAME,
 # ax.set_xlabel('Number of Episodes')
 # ax.set_ylabel('Reward per episode')
 # ax.set_title('MLP Q Learning '+ ENV_NAME)
+
+### script for further training to 50,000 episodes with graphs
+# r_lst_, targ_avg_lst_, records_ = train_model(env, model, 49000)
+# model.save('../models/nn_{}nn_r_add_100velo_50kep_weights.h5f'.format(ENV_NAME), overwrite=True)
+# r_lst = np.append(r_lst, r_lst_)
+# targ_avg_lst += targ_avg_lst_
+# records += records_
+# pos, velo, act = [i for i in zip(*records)]
+# plot_policy(pos,velo,act, save_path='../images/nn_policy_plot_50kep.png', show=False)
+# fig, ax = plt.subplots(figsize=(8,6))
+# ax.plot(r_lst+200, label='Total reward +200', color='g')
+# ax.plot(targ_avg_lst, label='Avg Target per action', color='b')
+# ax.legend()
+# ax.set_xlabel('Number of Episodes')
+# ax.set_ylabel('Average reward per episode')
+# ax.set_title('MLP Q Learning '+ ENV_NAME)
+# fig.savefig('../images/nn_r_add_100velo_50kep.png')
+# print('=====DONE======')
