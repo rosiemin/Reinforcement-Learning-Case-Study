@@ -56,6 +56,11 @@ The state is a complete description of the world, they don’t hide any pieces o
 ##### The Rewards:
 The reward function R is the one which must be kept tracked all-time in reinforcement learning. It plays a vital role in tuning, optimizing the algorithm and stop training the algorithm. It depends on the current state of the world, the action just taken, and the next state of the world.
 
+
+<p align="center">
+  <img src="images/cycle.png" width="550">
+</p>
+
 **Our rewards for Q-learning are: **  
 
 1. Multiply every second elapsed by -1
