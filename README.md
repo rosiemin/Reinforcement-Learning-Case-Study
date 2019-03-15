@@ -233,9 +233,9 @@ The Keras model used a neural network to learn the Q function to predict results
 
 |                           	| Naive Model 	| Q-Table Model 	| Keras Model 	|
 |---------------------------	|-------------	|---------------	|-------------	|
-| Total number of episodes  	| 1000        	| 50,000        	|             	|
-| Episode of first success  	| 0           	| 1264          	|             	|
-| Total number of successes 	| 0           	| 3503          	|             	|
+| Total number of episodes  	| 1000        	| 50,000        	|  1000        	|
+| Episode of first success  	| 0           	| 1264          	|   307       	|
+| Total number of successes 	| 0           	| 3503          	|   327       	|
 
 [Return to Top](#Table-of-Contents)
 
