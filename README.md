@@ -69,7 +69,7 @@ Policy is a rule used by an agent for choosing the next action, these are also c
 **Our policies for Q-learning are based on the Bellman Equation:**
 
 <p align="center">
-  <img src="images/ Q_learning.png" width="550">
+  <img src="images/ Q_learning.png" width="700">
 </p>
 
 ##### Reward Table
