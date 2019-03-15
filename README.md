@@ -7,11 +7,15 @@
   * [The Environment](#The-Environment)
   * [The Actions](#The-Actions)
   * [The States](#The-States)
-  * [The Rewards](#The-Rewards)
+  * [Rewards](#Rewards)
   * [Policies](#Policies)
   * [Reward Table](#Reward-Table)
 * [Naive Model](#Naive-Model)
+  * [Naive Rewards](#Naive-Rewards)
+  * [Naive Policy](#Naive-Policy)
 * [Q-Table Model](#Q-Table-Model)
+  * [The Q-Model Rewards](#The-Q-model-Rewards)
+  * [Q-Model Policies](#Q-Model-Policies)
 * [Keras Model](#Keras-Model)
 * [The Results](#The-Results)
 * [Final Thoughts & Next Steps](#Final-Thoughts)
@@ -24,8 +28,8 @@ The goal of this case study was to use reinforcement learning to train an agent 
 </p>
 
 Our goal was to see if we could train the actor in this given environment using reinforcement learning based on:
-1. A naive model - random actions
-2. A Q-table model - modified for rewards
+1. A naive model
+2. A Q-table model
 3. A Keras model
 
 [Return to Top](#Table-of-Contents)
@@ -53,27 +57,18 @@ The state is a complete description of the world, they don’t hide any pieces o
 
 **Our states were position and velocity**
 
-##### The Rewards:
+<p align="center">
+  <img src="images/cycle.png" width="550">
+</p>
+
+##### Rewards:
 The reward function R is the one which must be kept tracked all-time in reinforcement learning. It plays a vital role in tuning, optimizing the algorithm and stop training the algorithm. It depends on the current state of the world, the action just taken, and the next state of the world.
-
-**Our rewards for Q-learning are: **  
-
-1. Multiply every second elapsed by -1
-2. Multiply absolute value of velocity by 1000 to reward higher velocities (max velocity = 0.07)
-3. Add 10 to the reward when the maximum position of the episode exceeds the maximum position of the previous episode.
-
 
 ##### Policies:
 Policy is a rule used by an agent for choosing the next action, these are also called as agents brains.
 
-**Our policies for Q-learning are based on the Bellman Equation:**
-
-<p align="center">
-  <img src="images/ Q_learning.png" width="700">
-</p>
-
 ##### Reward Table
-*Q-Table (depending on model):*
+
 For our case study, we realized that our states were based on two continuous variables:
 
 |          	| Minimum 	| Maximum 	|
@@ -86,6 +81,14 @@ Due to the fact these were both continuous variables, we didn't want to have an 
 [Return to Top](#Table-of-Contents)
 
 ## Naive Model:
+
+#### Naive Rewards:
+1. Multiply every second elapsed by -1
+2. Positive reward if car reached the flag
+
+#### Naive Policy:
+Max reward at each state chosen based on cumulative reward table
+
 The Naive Model selected randomly from the rewards table based on the maximum reward based on that state. (see reward table below). If two states had the same max value of reward, the actions were shuffled and one was chosen at random. As you can see, the reward didn't change too much from episode to episode and the max position never reached the flag position (0.6). From the short clip below, we can see that the model never really reached above a certain threshold in the environment and it just oscillated back and forth for the majority of the episodes. The rewards table below also reflect that, where we see clusters of negative rewards in two certain areas, but not much beyond that.
 
 
@@ -102,13 +105,13 @@ The rewards table is below:
                           +--------------+----------+----------+----------+
                           |    STATE     |   LEFT   | NEUTRAL  |  RIGHT   |
                           +--------------+----------+----------+----------+
-                          | ['0.6' '+']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.5' '+']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.4' '+']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.3' '+']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.2' '+']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.1' '+']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.0' '+']  |   0.0    |   0.0    |   0.0    |
+                          | ['0.6'  '+'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.5'  '+'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.4'  '+'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.3'  '+'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.2'  '+'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.1'  '+'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.0'  '+'] |   0.0    |   0.0    |   0.0    |
                           | ['-0.1' '+'] |   0.0    |   0.0    |   0.0    |
                           | ['-0.2' '+'] |   -7.0   |   -6.0   |   -6.0   |
                           | ['-0.3' '+'] |   0.0    |   0.0    |   0.0    |
@@ -121,13 +124,13 @@ The rewards table is below:
                           | ['-1.0' '+'] |   0.0    |   0.0    |   0.0    |
                           | ['-1.1' '+'] |   0.0    |   0.0    |   0.0    |
                           | ['-1.2' '+'] |   0.0    |   0.0    |   0.0    |
-                          | ['0.6' '-']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.5' '-']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.4' '-']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.3' '-']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.2' '-']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.1' '-']  |   0.0    |   0.0    |   0.0    |
-                          | ['0.0' '-']  |   0.0    |   0.0    |   0.0    |
+                          | ['0.6'  '-'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.5'  '-'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.4'  '-'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.3'  '-'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.2'  '-'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.1'  '-'] |   0.0    |   0.0    |   0.0    |
+                          | ['0.0'  '-'] |   0.0    |   0.0    |   0.0    |
                           | ['-0.1' '-'] |   0.0    |   0.0    |   0.0    |
                           | ['-0.2' '-'] |   0.0    |   0.0    |   0.0    |
                           | ['-0.3' '-'] |   -5.0   |   -4.0   |   -5.0   |
@@ -147,6 +150,21 @@ The rewards table is below:
 [Return to Top](#Table-of-Contents)
 
 ## Q-Table Model:
+
+##### The Q-model Rewards:
+1. Multiply every second elapsed by -1
+2. Multiply absolute value of velocity by 1000 to reward higher velocities (max velocity = 0.07)
+3. Add 10 to the reward when the maximum position of the episode exceeds the maximum position of the previous episode.
+
+
+##### Q-Model Policies:
+Our policies for Q-learning are based on the Bellman Equation:
+
+<p align="center">
+  <img src="images/ Q_learning.png" width="700">
+</p>
+
+
 We had to boost the performance of the Q-learning model with extra rewards because there's no positive reinforcement using the Q-learning policies until the cart starts gaining momentum. It took a lot of adjustments to the number of episodes, the learning rate, and the rewards to finally get a model that successfully got to the goal post. We found that the ratio between the rewards for max_position and velocity really affected the performance of our model. We ended up with a 7% success rate after 50,000 episodes.
 
 <p align="center">
@@ -160,13 +178,13 @@ Q-table is shown below:
                 +--------------+---------+-----------+---------+
                 |    STATE     |  LEFT   |  NEUTRAL  |  RIGHT  |
                 +--------------+---------+-----------+---------+
-                | ['0.6' '+']  |   549   |    577    |   575   |
-                | ['0.5' '+']  |   571   |    561    |   576   |
-                | ['0.4' '+']  |   513   |    530    |   518   |
-                | ['0.3' '+']  |   494   |    485    |   511   |
-                | ['0.2' '+']  |   0.0   |    0.0    |   0.0   |
-                | ['0.1' '+']  |   436   |    447    |   467   |
-                | ['0.0' '+']  |   453   |    441    |   462   |
+                | ['0.6'  '+'] |   549   |    577    |   575   |
+                | ['0.5'  '+'] |   571   |    561    |   576   |
+                | ['0.4'  '+'] |   513   |    530    |   518   |
+                | ['0.3'  '+'] |   494   |    485    |   511   |
+                | ['0.2'  '+'] |   0.0   |    0.0    |   0.0   |
+                | ['0.1'  '+'] |   436   |    447    |   467   |
+                | ['0.0'  '+'] |   453   |    441    |   462   |
                 | ['-0.1' '+'] |   0.0   |    0.0    |   0.0   |
                 | ['-0.2' '+'] |   467   |    463    |   478   |
                 | ['-0.3' '+'] |   0.0   |    0.0    |   0.0   |
@@ -179,13 +197,13 @@ Q-table is shown below:
                 | ['-1.0' '+'] |   380   |    379    |   389   |
                 | ['-1.1' '+'] |   356   |    356    |   359   |
                 | ['-1.2' '+'] |   0.0   |    0.0    |   0.0   |
-                | ['0.6' '-']  |   0.0   |    0.0    |   0.0   |
-                | ['0.5' '-']  |   88.5  |    75.1   |   367   |
-                | ['0.4' '-']  |   273   |    270    |   265   |
-                | ['0.3' '-']  |   319   |    313    |   317   |
-                | ['0.2' '-']  |   352   |    349    |   349   |
-                | ['0.1' '-']  |   361   |    361    |   361   |
-                | ['0.0' '-']  |   361   |    361    |   360   |
+                | ['0.6'  '-'] |   0.0   |    0.0    |   0.0   |
+                | ['0.5'  '-'] |   88.5  |    75.1   |   367   |
+                | ['0.4'  '-'] |   273   |    270    |   265   |
+                | ['0.3'  '-'] |   319   |    313    |   317   |
+                | ['0.2'  '-'] |   352   |    349    |   349   |
+                | ['0.1'  '-'] |   361   |    361    |   361   |
+                | ['0.0'  '-'] |   361   |    361    |   360   |
                 | ['-0.1' '-'] |   389   |    374    |   378   |
                 | ['-0.2' '-'] |   384   |    388    |   380   |
                 | ['-0.3' '-'] |   390   |    369    |   365   |

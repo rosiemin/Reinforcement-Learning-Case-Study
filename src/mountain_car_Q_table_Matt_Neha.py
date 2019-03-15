@@ -9,12 +9,13 @@ np.random.seed(2)
 def plot_max_position(positions, rewards):
     plt.figure(1, figsize=[10,6])
     plt.ylim(-1, 1)
-    plt.plot(positions[:,1], color='g') #positions[:,0]
+    plt.plot(positions[:,1], color='g', label = 'Max Position') #positions[:,0]
     ma = pd.Series(positions[:,1]).rolling(100).mean()
     plt.plot(ma, color='b', label="100-Episode Rolling Average") #positions[:,0]
     plt.title("Mountain Car Max Positions")
     plt.xlabel('Episode')
     plt.ylabel('Max Position')
+    plt.legend()
     plt.show()
 
 def print_pretty_table(table):
@@ -53,6 +54,9 @@ print(env.observation_space)
 max_position = -.4
 positions = np.ndarray([0,2])
 velocities = np.ndarray([0,2])
+positions_1 = []
+velocities_1 = []
+action_lst = []
 all_rewards = []
 successful = []
 time_successful = []
@@ -94,8 +98,10 @@ for episode in range(total_episodes):
         else:
             #action = np.argmax(r_table[state, :]) # Exploit
             action = rand_max(q_table[state, :])
-
+        action_lst.append(action)
         new_state, reward, done, info = env.step(action)
+        positions_1.append(new_state[0])
+        velocities_1.append(new_state[0])
 
         # Adjust reward based on car velocity
         reward += np.abs(new_state[1]) * 1000
