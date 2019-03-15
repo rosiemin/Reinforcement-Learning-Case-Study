@@ -169,6 +169,7 @@ We had to boost the performance of the Q-learning model with extra rewards becau
 
 <p align="center">
   <img src="images/mtcar_qtable.png" width="550">
+  <img src="images/Q-policy.png" width="550">
   <img src="images/Q-learning.gif" width="550">
 </p>
 
