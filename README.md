@@ -223,8 +223,10 @@ Q-table is shown below:
 [Return to Top](#Table-of-Contents)
 
 ## Keras Model:
+The Keras model used a neural network to learn the Q function to predict results for future actions. The architecture was 3 hidden layers of 24 neurons with dropout at 25% and using the `Adam` optimizer. The neural network was trained on the reward plus discount rate times the future max reward prediction plus 100 times the absolute value of the new velocity. Around the 300th episode the model learned how to start getting up the hill. The model still doesn't get above -180 and so has quite a bit more to learn to be a high performing model. Training on more episodes may improve performance further.
 
-  ADD HERE
+![100vel](images/nn_r_add_100velo_1000ep.png)
+
 
 [Return to Top](#Table-of-Contents)
 
@@ -232,9 +234,9 @@ Q-table is shown below:
 
 |                           	| Naive Model 	| Q-Table Model 	| Keras Model 	|
 |---------------------------	|-------------	|---------------	|-------------	|
-| Total number of episodes  	| 1000        	| 50,000        	|             	|
-| Episode of first success  	| 0           	| 1264          	|             	|
-| Total number of successes 	| 0           	| 3503          	|             	|
+| Total number of episodes  	| 1000        	| 50,000        	|  1000        	|
+| Episode of first success  	| 0           	| 1264          	|   307       	|
+| Total number of successes 	| 0           	| 3503          	|   327       	|
 
 [Return to Top](#Table-of-Contents)
 
