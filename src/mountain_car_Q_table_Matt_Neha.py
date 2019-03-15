@@ -9,7 +9,7 @@ np.random.seed(2)
 def plot_max_position(positions, rewards):
     plt.figure(1, figsize=[10,6])
     plt.ylim(-1, 1)
-    plt.plot(positions[:,1], color='g') #positions[:,0]
+    plt.plot(positions[:,1], color='g', label = 'Max Position') #positions[:,0]
     ma = pd.Series(positions[:,1]).rolling(100).mean()
     plt.plot(ma, color='b', label="100-Episode Rolling Average") #positions[:,0]
     plt.title("Mountain Car Max Positions")
