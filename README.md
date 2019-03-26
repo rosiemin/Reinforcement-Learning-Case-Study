@@ -258,7 +258,6 @@ The keras-rl provides many other possible policies to try. Documentation and our
 
 
 ### Next Steps:
-CHANGE IF NEEDED add more
 The ideal next steps for us would be to optimize our models so we can have the actor learn in the minimum amount of episodes. It would also be interesting to examine different policies to see if the model would perform better.
 
 [Return to Top](#Table-of-Contents)
